@@ -1,0 +1,49 @@
+// Bubble Sort in C++
+// Time Complexity: O(n²)
+// Space Complexity: O(1)
+
+#include <iostream>
+#include <vector>
+using namespace std;
+
+// Function to perform Bubble Sort
+void bubbleSort(vector<int> &arr)
+{
+    int n = arr.size();
+    for (int i = 0; i < n - 1; i++)
+    {
+        bool swapped = false;
+        for (int j = 0; j < n - i - 1; j++)
+        {
+            if (arr[j] > arr[j + 1])
+            {
+                swap(arr[j], arr[j + 1]);
+                swapped = true;
+            }
+        }
+        // Stop if the array is already sorted
+        if (!swapped)
+            break;
+    }
+}
+// Function to display the array
+void printArray(const vector<int> &arr)
+{
+    for (int num : arr)
+        cout << num << " ";
+    cout << endl;
+}
+int main()
+{
+    int n;
+    cout << "Enter the number of elements: ";
+    cin >> n;
+    vector<int> arr(n);
+    cout << "Enter " << n << " elements:\n";
+    for (int i = 0; i < n; i++)
+        cin >> arr[i];
+    bubbleSort(arr);
+    cout << "Sorted array: ";
+    printArray(arr);
+    return 0;
+}
